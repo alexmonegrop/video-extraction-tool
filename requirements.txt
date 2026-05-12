@@ -1,0 +1,24 @@
+# Video Analysis Pipeline - Requirements
+# Install with: pip install -r requirements.txt
+#
+# NOTE: Install PyTorch with CUDA first (before other packages):
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+#
+# If Python 3.14 causes issues, use Python 3.12 via:
+#   py -3.12 -m pip install -r requirements.txt
+
+# Audio transcription (4x faster than openai-whisper, CUDA-accelerated)
+faster-whisper>=1.1.0
+
+# Frame extraction and scene detection
+opencv-python>=4.10.0
+scenedetect[opencv]>=0.6.5
+
+# AI Vision APIs
+anthropic>=0.42.0
+
+# Video downloading (optional, for URL-based videos)
+yt-dlp>=2024.12.0
+
+# Utilities
+Pillow>=10.0.0
