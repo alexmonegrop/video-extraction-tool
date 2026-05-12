@@ -12,6 +12,8 @@ Drop a video in `videos/`, get back a timestamped transcript with speaker labels
 
 Optimised for an NVIDIA RTX 4070 SUPER class GPU. ~1 minute of processing per 9 minutes of video on the transcription pass.
 
+> **AI agents picking up this repo:** read [`AGENTS.md`](AGENTS.md) first. It's the one-page operator onboarding. Then `CLAUDE.md` for the detailed rules + gotchas.
+
 ---
 
 ## Why this exists
@@ -123,6 +125,13 @@ frames/               (gitignored) — per-video extracted frames
 ```
 
 ---
+
+## Documentation
+
+- **[`AGENTS.md`](AGENTS.md)** — one-page operator onboarding for an AI agent driving this tool.
+- **[`CLAUDE.md`](CLAUDE.md)** — detailed rules, gotchas, benchmarks, configuration reference.
+- **[`CHANGELOG.md`](CHANGELOG.md)** — release history.
+- **[`SECURITY.md`](SECURITY.md)** — disclosure policy and what's in / out of scope.
 
 ## License
 

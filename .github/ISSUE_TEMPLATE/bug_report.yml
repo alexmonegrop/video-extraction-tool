@@ -1,0 +1,92 @@
+name: Bug report
+description: Report a defect in a pipeline module, skill, script, or doc.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. Before submitting, please confirm:
+        - You've read the **Known gotchas** section of `README.md` and the matching section in `CLAUDE.md`.
+        - The bug is reproducible — not a one-off transient (CUDA / pyannote sometimes flake on the first run after a driver update).
+        - You've tried with `large-v3` whisper model on CUDA `float16` (the documented configuration). Bugs against `base` model or CPU-only setups are lower priority.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What went wrong
+      description: A clear, concrete description of the bug.
+      placeholder: e.g. `python src/transcribe.py "videos/test.mp4" transcripts --diarize --num-speakers 2` produced a transcript JSON but `_transcript_timestamped.txt` was missing speaker labels even though `--diarize` was passed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: The exact sequence to trigger the bug.
+      placeholder: |
+        1. `python src/preprocess.py "videos/test.mp4"`
+        2. `python src/transcribe.py "videos/test_small.mp4" transcripts --diarize --num-speakers 2`
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What should have happened instead.
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: OS / shell
+      placeholder: Windows 11 PowerShell / Ubuntu 22.04 bash / macOS 14 zsh
+    validations:
+      required: true
+
+  - type: input
+    id: gpu
+    attributes:
+      label: GPU / CUDA
+      placeholder: RTX 4070 SUPER (12GB), CUDA 12.4, driver 555.85
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      placeholder: python --version
+    validations:
+      required: true
+
+  - type: input
+    id: package-versions
+    attributes:
+      label: Key package versions
+      placeholder: faster-whisper 1.1.0 / pyannote.audio 4.0.0 / torch 2.5.1+cu124 / opencv-python 4.10.0
+    validations:
+      required: false
+
+  - type: textarea
+    id: video-context
+    attributes:
+      label: Video context (anonymise!)
+      description: |
+        Approximate duration, resolution, number of speakers, audio condition (clean / noisy / remote-call mix).
+        **Do NOT include the actual video, transcript, frames, or participant names.** This is a public issue tracker.
+      placeholder: 63 min, 1920x1080, 2 speakers, one local-clean + one remote-VOIP
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Paste the failing output. **Strip any tokens, file paths that reveal usernames, and participant names first.**
+      render: shell
+    validations:
+      required: false

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Setup question / general help
+    url: https://github.com/alexmonegrop/video-extraction-tool/discussions
+    about: For "how do I…" questions about CUDA setup, pyannote licenses, FFmpeg installation, or running the pipeline — please open a Discussion instead of an issue.
+  - name: Documentation
+    url: https://github.com/alexmonegrop/video-extraction-tool/blob/main/CLAUDE.md
+    about: CLAUDE.md is the canonical reference — gotchas, benchmarks, configuration, skill procedures.

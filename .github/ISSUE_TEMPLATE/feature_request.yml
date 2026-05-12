@@ -1,0 +1,47 @@
+name: Feature request
+description: Propose a new pipeline module, skill, script, or doc — or an extension to an existing one.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. This tool is opinionated by design — it targets a specific hardware class (NVIDIA RTX 4070 SUPER, 12GB VRAM, CUDA 12.x) and a specific use-case (interactive video analysis driven by Claude Code's built-in vision). Features outside that target may be better as a fork.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve
+      description: The video-analysis workflow gap that motivated this.
+      placeholder: e.g. I want to extract speaker-attributed quotes into a structured CSV instead of a markdown analysis.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Concrete changes to pipeline / skills / scripts / docs.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What else could solve this — and why isn't it good enough?
+    validations:
+      required: false
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: Where does this change live?
+      options:
+        - Core (changes the tool's default behaviour)
+        - Optional / opt-in (behind a config flag in `config/settings.py`)
+        - New skill (new slash command, doesn't touch existing pipeline)
+        - Documentation only
+        - Better as a fork (different hardware target, different use-case)
+    validations:
+      required: true
